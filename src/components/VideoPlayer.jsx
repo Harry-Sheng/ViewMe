@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react'
 function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
     const videoRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
-    const [isMuted, setIsMuted] = useState(true)
+    const [isMuted, setIsMuted] = useState(false)
 
     useEffect(() => {
         const video = videoRef.current
