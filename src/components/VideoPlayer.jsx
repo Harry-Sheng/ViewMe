@@ -110,20 +110,30 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
                 </div>
             )}
 
-            {/* Volume Slider */}
-            <div className="absolute top-20 right-4 w-10 h-32 flex flex-col items-center justify-center p-2 opacity-20 hover:opacity-100 transition-opacity duration-300">
-                <input
-                    type="range"
-                    min="0"
-                    max="1"
-                    step="0.1"
-                    value={isMuted ? 0 : volume}
-                    onChange={handleVolumeChange}
-                    className="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider-vertical"
-                    style={{
-                        transform: 'rotate(-90deg)',
-                        transformOrigin: 'center'
-                    }}
+            {/* Volume Controls */}
+            <div className="absolute top-20 right-4 flex flex-col items-center opacity-20 hover:opacity-100 transition-opacity duration-300">
+                {/* Volume Slider */}
+                <div className="w-8 h-20 flex items-center justify-center">
+                    <input
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.1"
+                        value={isMuted ? 0 : volume}
+                        onChange={handleVolumeChange}
+                        className="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider-vertical"
+                        style={{
+                            transform: 'rotate(-90deg)',
+                            transformOrigin: 'center'
+                        }}
+                    />
+                </div>
+
+                {/* Volume Icon */}
+                <img
+                    src="/volume.png"
+                    alt="Volume"
+                    className="w-5 h-5 mt-2"
                 />
             </div>
         </div>
