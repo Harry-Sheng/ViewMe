@@ -120,7 +120,7 @@ function FeedPage() {
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 z-20 text-center pt-6 pb-4 bg-gradient-to-b from-black/40 to-transparent">
         <h1 className="text-3xl font-bold">
-          <span style={{ color: '#2a2e3a' }}>View</span>
+          <span style={{ color: '#2A324B' }}>View</span>
           <span style={{ color: '#718bab' }}>Me</span>
         </h1>
       </div>
@@ -164,7 +164,7 @@ function FeedPage() {
           className="w-10 h-10 flex items-center justify-center"
         >
           <img
-            src="/code.png"
+            src="/code_blue.png"
             alt="Code"
             className="w-8 h-8"
           />
@@ -176,7 +176,7 @@ function FeedPage() {
           className="w-10 h-10 flex items-center justify-center"
         >
           <img
-            src="/save.png"
+            src="/save_blue.png"
             alt="Save"
             className={`w-8 h-8 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
               }`}
@@ -188,14 +188,14 @@ function FeedPage() {
       <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 flex flex-col gap-4">
         <button
           onClick={goToPrevVideo}
-          className="text-2xl text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+          className="text-2xl text-white bg-[#2A324B] bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center opacity-30 hover:opacity-100 transition-opacity duration-300"
           disabled={currentVideoIndex === 0}
         >
           ↑
         </button>
         <button
           onClick={goToNextVideo}
-          className="text-2xl text-white bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center"
+          className="text-2xl text-white bg-[#2A324B] bg-opacity-80 rounded-full w-10 h-10 flex items-center justify-center opacity-30 hover:opacity-100 transition-opacity duration-300"
           disabled={currentVideoIndex === videos.length - 1}
         >
           ↓
