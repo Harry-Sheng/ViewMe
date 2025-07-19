@@ -118,8 +118,11 @@ function FeedPage() {
   return (
     <div className="h-full bg-black relative overflow-hidden">
       {/* Header */}
-      <div className="absolute top-0 left-0 right-0 z-20 text-center pt-6 pb-4 bg-gradient-to-b from-black to-transparent">
-        <h1 className="text-3xl font-bold text-white">ViewMe</h1>
+      <div className="absolute top-0 left-0 right-0 z-20 text-center pt-6 pb-4 bg-gradient-to-b from-black/40 to-transparent">
+        <h1 className="text-3xl font-bold">
+          <span style={{ color: '#2a2e3a' }}>View</span>
+          <span style={{ color: '#718bab' }}>Me</span>
+        </h1>
       </div>
 
       {/* Video Container */}
