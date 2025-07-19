@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import FeedPage from "./pages/FeedPage"
 import ProfilePage from "./pages/ProfilePage"
 import BottomNav from "./components/BottomNav"
+import "./styles/App.css";
 
 function App() {
   return (
