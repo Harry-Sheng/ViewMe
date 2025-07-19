@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
   const user = {
@@ -30,20 +30,18 @@ function ProfilePage() {
   const navigate = useNavigate();
 
   return (
-
     <div className="bg-[#2A324B] text-white p-6 flex flex-col items-center">
       <div className="w-full max-w-md flex flex-col h-full">
         {/* Top Static Section */}
         <div className="pb-6">
-          
-          <button className="absolute text-white text-base rounded hover:bg-gray-700 transition cursor-pointer"
+          <button
+            className="absolute text-white text-base rounded hover:bg-gray-700 transition cursor-pointer"
             onClick={() => navigate("/")}
             aria-label="Back"
-            >
+          >
             ←
           </button>
-          
-          
+
           {/* Profile Header */}
           <div className="flex items-center space-x-4 mb-6">
             <img
@@ -78,10 +76,10 @@ function ProfilePage() {
 
           {/* Message & Follow Buttons */}
           <div className="w-full flex justify-center mb-6 gap-4">
-            <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+            <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer">
               Message
             </button>
-            <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+            <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer">
               Follow
             </button>
           </div>
@@ -92,8 +90,8 @@ function ProfilePage() {
               onClick={() => setActiveTab("posts")}
               className={`flex-1 py-3 text-sm font-semibold ${
                 activeTab === "posts"
-                  ? "bg-[#c7ccdb] text-black"
-                  : "bg-gray-700 text-gray-300"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
               }`}
             >
               Posts
@@ -102,8 +100,8 @@ function ProfilePage() {
               onClick={() => setActiveTab("saved")}
               className={`flex-1 py-3 text-sm font-semibold ${
                 activeTab === "saved"
-                  ? "bg-[#c7ccdb] text-black"
-                  : "bg-gray-700 text-gray-300"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
               }`}
             >
               Saved
