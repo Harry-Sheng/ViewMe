@@ -97,6 +97,9 @@ function FeedPage() {
       ...prev,
       [currentVideo.id]: !prev[currentVideo.id]
     }))
+
+    // Open GitHub repository in new tab
+    window.open('https://github.com/Harry-Sheng/ViewMe', '_blank')
   }
 
   const handleSaveClick = () => {
@@ -142,8 +145,14 @@ function FeedPage() {
         {/* Profile circle */}
         <button
           onClick={() => navigate('/profile')}
-          className="w-12 h-12 bg-gray-700 rounded-full border-2 border-white cursor-pointer hover:bg-gray-600 transition-colors"
-        ></button>
+          className="w-12 h-12 bg-gray-700 rounded-full border-3 border-[#2A324B] cursor-pointer hover:bg-gray-600 transition-colors overflow-hidden"
+        >
+          <img
+            src="https://i.pravatar.cc/150?img=12"
+            alt="Profile"
+            className="w-full h-full object-cover rounded-full"
+          />
+        </button>
 
 
         {/* Code button */}
@@ -154,8 +163,7 @@ function FeedPage() {
           <img
             src="/code.png"
             alt="Code"
-            className={`w-8 h-8 transition-all ${codeClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
-              }`}
+            className="w-8 h-8"
           />
         </button>
 
