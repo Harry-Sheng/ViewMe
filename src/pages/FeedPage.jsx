@@ -145,7 +145,7 @@ function FeedPage() {
           className="w-8 h-8 flex items-center justify-center"
         >
           <img
-            src="/images/code.png"
+            src="/code.png"
             alt="Code"
             className={`w-6 h-6 transition-all ${codeClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
               }`}
@@ -158,7 +158,7 @@ function FeedPage() {
           className="w-8 h-8 flex items-center justify-center"
         >
           <img
-            src="/images/save.png"
+            src="/save.png"
             alt="Save"
             className={`w-6 h-6 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
               }`}
