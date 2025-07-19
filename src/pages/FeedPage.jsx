@@ -158,7 +158,7 @@ function FeedPage() {
         {/* Code button */}
         <button
           onClick={handleCodeClick}
-          className="w-10 h-10 flex items-center justify-center"
+          className="w-10 h-10 flex items-center justify-center cursor-pointer"
         >
           <img
             src="/code.png"
@@ -170,7 +170,7 @@ function FeedPage() {
         {/* Save button */}
         <button
           onClick={handleSaveClick}
-          className="w-10 h-10 flex items-center justify-center"
+          className="w-10 h-10 flex items-center justify-center cursor-pointer"
         >
           <img
             src="/save.png"
