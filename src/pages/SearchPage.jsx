@@ -87,7 +87,7 @@ function SearchPage() {
   }, [query])
 
   return (
-    <div className="bg-black text-white px-4 pt-6 pb-6 overflow-auto">
+    <div className="bg-[#2A324B] text-white px-4 pt-6 pb-6 overflow-auto">
         {/* Search Bar */}
         <form onSubmit={(e) => e.preventDefault()} className="mb-6">
         <input
@@ -103,7 +103,7 @@ function SearchPage() {
         {results.length > 0 ? (
         <div className="grid grid-cols-3 gap-2">
             {results.map((item) => (
-            <div key={item.id} className="aspect-[9/16] overflow-hidden rounded-lg">
+            <div key={item.id} className="aspect-[9/16] overflow-hidden rounded-lg border border-gray-600">
                 <img
                 src={item.thumbnail}
                 alt={item.title}
