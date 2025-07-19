@@ -7,7 +7,8 @@ function BottomNav() {
   const navItems = [
     { to: "/", icon: "/home-but-white.png", label: "Home" },
     { to: "/search", icon: "/search-white.png", label: "Search" },
-    { to: "/profile", icon: "/user-white.png", label: "Profile" },
+    // { to: "/profile", icon: "/user-white.png", label: "Profile" },
+    { to: "/user", icon: "/user-white.png", label: "User" },
   ];
 
   return (

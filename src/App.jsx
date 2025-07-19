@@ -2,6 +2,7 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import FeedPage from "./pages/FeedPage"
 import ProfilePage from "./pages/ProfilePage"
+import UserPage from "./pages/UserPage"
 import BottomNav from "./components/BottomNav"
 import SearchPage from "./pages/SearchPage"
 import "./styles/App.css"
@@ -14,6 +15,7 @@ function App() {
         <div className="absolute top-0 left-0 right-0 bottom-12 overflow-y-auto scrollbar-hidden rounded-t-xl overflow-hidden">
           <Routes>
             <Route path="/" element={<FeedPage />} />
+            <Route path="/user" element={<UserPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
           </Routes>

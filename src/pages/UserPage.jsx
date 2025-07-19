@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
-function ProfilePage() {
+function UserPage() {
   const user = {
-    name: "John Smith",
-    username: "@johnsmith",
-    bio: "Hi there! I'm a software devloper proficient in JavaScript, React, and Node.js.",
-    avatar: "https://i.pravatar.cc/150?img=12",
+    name: "Sarah Johnson",
+    username: "@sarahjohnson",
+    bio: "I'm a developer looking to collaborate on some projects!",
+    avatar: "https://i.pravatar.cc/150?img=10",
     posts: [
       {
         id: 1,
@@ -34,28 +34,21 @@ function ProfilePage() {
 
   const postsToShow = activeTab === "posts" ? user.posts : user.savedPosts;
 
-  const navigate = useNavigate();
-
   return (
 
     <div className="bg-[#2A324B] min-h-screen p-6 flex flex-col items-center text-white h-screen">
       {/* Sticky top section */}
       <div className="w-full max-w-md sticky top-0 bg-[#2A324B] z-20 pb-6">
-
-        <button className="absolute text-white text-base rounded hover:bg-gray-700 transition cursor-pointer"
-        onClick={() => navigate("/")}
-        aria-label="Back"
-        >
-        ←
-        </button>
-
+        
         {/* Profile Header */}
         <div className="flex items-center space-x-4 mb-6">
-          <img
+          <Link to="/profile">
+            <img
             src={user.avatar}
             alt="User Avatar"
-            className="w-30 h-30 rounded-full border-2 border-gray-300"
-          />
+            className="w-30 h-30 rounded-full border-2 border-gray-300 cursor-pointer hover:opacity-80"
+            />
+        </Link>
           <div className="flex flex-col text-center">
             <h2 className="text-center text-2xl font-semibold text-[#E1E5EE]">{user.name}</h2>
             <p className="text-center text-[#E1E5EE] text-sm">{user.username}</p>
@@ -79,10 +72,10 @@ function ProfilePage() {
 
         <div className="w-full max-w-md flex justify-center mb-6 gap-4">
           <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
-            Message
+            Settings
           </button>
           <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
-            Follow
+            Edit Profile
           </button>
         </div>
 
@@ -140,4 +133,4 @@ function ProfilePage() {
   );
 }
 
-export default ProfilePage;
+export default UserPage;
