@@ -106,7 +106,7 @@ function ProfilePage() {
             {postsToShow.map((post) => (
               <div
                 key={post.id}
-                className="h-58 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden"
+                className="h-59 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden"
               >
                 <img
                   src={post.image}
