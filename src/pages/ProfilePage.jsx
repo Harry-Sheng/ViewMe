@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 function ProfilePage() {
   const user = {
@@ -26,11 +27,23 @@ function ProfilePage() {
 
   const postsToShow = activeTab === "posts" ? user.posts : user.savedPosts;
 
+  const navigate = useNavigate();
+
   return (
+
     <div className="bg-[#2A324B] text-white p-6 flex flex-col items-center">
       <div className="w-full max-w-md flex flex-col h-full">
         {/* Top Static Section */}
         <div className="pb-6">
+          
+          <button className="absolute text-white text-base rounded hover:bg-gray-700 transition cursor-pointer"
+            onClick={() => navigate("/")}
+            aria-label="Back"
+            >
+            ←
+          </button>
+          
+          
           {/* Profile Header */}
           <div className="flex items-center space-x-4 mb-6">
             <img
