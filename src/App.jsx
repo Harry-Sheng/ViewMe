@@ -1,9 +1,10 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import FeedPage from "./pages/FeedPage";
-import ProfilePage from "./pages/ProfilePage";
-import BottomNav from "./components/BottomNav";
-import "./styles/App.css";
+import React from "react"
+import { Routes, Route } from "react-router-dom"
+import FeedPage from "./pages/FeedPage"
+import ProfilePage from "./pages/ProfilePage"
+import BottomNav from "./components/BottomNav"
+import SearchPage from "./pages/SearchPage"
+import "./styles/App.css"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<FeedPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/search" element={<SearchPage />} />
           </Routes>
         </div>
 
@@ -23,7 +25,7 @@ function App() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 function ProfilePage() {
   const user = {
-    name: "Jayde Lal",
-    username: "@jaydelal",
-    bio: "Description & Tech Stack: ",
+    name: "John Smith",
+    username: "@johnsmith",
+    bio: "Hi there! I'm a software devloper proficient in JavaScript, React, and Node.js.",
     avatar: "https://i.pravatar.cc/150?img=12",
     posts: [
       {
@@ -34,22 +34,48 @@ function ProfilePage() {
   const postsToShow = activeTab === "posts" ? user.posts : user.savedPosts;
 
   return (
+
     <div className="bg-[#2A324B] min-h-screen p-6 flex flex-col items-center text-white h-screen">
       {/* Sticky top section */}
       <div className="w-full max-w-md sticky top-0 bg-[#2A324B] z-20 pb-6">
+        
         {/* Profile Header */}
-        <div className="flex items-center space-x-4 mb-4">
+        <div className="flex items-center space-x-4 mb-6">
           <img
             src={user.avatar}
             alt="User Avatar"
-            className="w-20 h-20 rounded-full border-2 border-gray-300"
+            className="w-30 h-30 rounded-full border-2 border-gray-300"
           />
-          <div>
-            <h2 className="text-2xl font-semibold">{user.name}</h2>
-            <p className="text-gray-400">{user.username}</p>
-            <p className="text-sm text-gray-300 mt-1">{user.bio}</p>
+          <div className="flex flex-col text-center">
+            <h2 className="text-center text-2xl font-semibold text-[#E1E5EE]">{user.name}</h2>
+            <p className="text-center text-[#E1E5EE] text-sm">{user.username}</p>
+            <div className="flex space-x-6 mt-2">
+              <div className="text-center">
+                <p className="text-lg font-semibold text-[#E1E5EE]">150</p>
+                <p className="text-sm text-gray-300">Followers</p>
+              </div>
+              <div className="text-center">
+                <p className="text-lg font-semibold text-[#E1E5EE]">200</p>
+                <p className="text-sm text-gray-300">Following</p>
+              </div>
+            </div>
           </div>
         </div>
+
+        {/* Bio Section */}
+        <div className="mb-6">
+          <p className="text-[#E1E5EE] text-sm">{user.bio}</p>
+        </div>
+
+        <div className="flex justify-between mb-6">
+          <button className="bg-[#F9D9C2] text-[#2A324B] px-12 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+            Message
+          </button>
+          <button className="bg-[#F9D9C2] text-[#2A324B] px-12 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+            Follow
+          </button>
+        </div>
+
 
         {/* Toggle Buttons */}
         <div className="-mx-6 flex gap-3 w-[calc(100%+3rem)]">
