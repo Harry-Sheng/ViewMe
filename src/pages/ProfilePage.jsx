@@ -63,15 +63,15 @@ function ProfilePage() {
         </div>
 
         {/* Bio Section */}
-        <div className="mb-6">
+        <div className="mb-6 ">
           <p className="text-[#E1E5EE] text-sm">{user.bio}</p>
         </div>
 
-        <div className="flex justify-between mb-6">
-          <button className="bg-[#F9D9C2] text-[#2A324B] px-12 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+        <div className="w-full max-w-md flex justify-center mb-6 gap-4">
+          <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
             Message
           </button>
-          <button className="bg-[#F9D9C2] text-[#2A324B] px-12 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
+          <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 transition cursor-pointer">
             Follow
           </button>
         </div>
