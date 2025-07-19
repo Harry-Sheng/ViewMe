@@ -3,7 +3,8 @@ import React, { useRef, useEffect, useState } from 'react'
 function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
     const videoRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
-    const [isMuted, setIsMuted] = useState(true)
+    const [isMuted, setIsMuted] = useState(false)
+    const [volume, setVolume] = useState(1)
 
     useEffect(() => {
         const video = videoRef.current
@@ -19,6 +20,9 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
 
         video.addEventListener('loadeddata', handleLoadedData)
         video.addEventListener('error', handleError)
+
+        // Set initial volume
+        video.volume = volume
 
         if (isActive) {
             video.play().then(() => {
@@ -52,6 +56,24 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
         const video = videoRef.current
         video.muted = !video.muted
         setIsMuted(video.muted)
+    }
+
+    const handleVolumeChange = (e) => {
+        const newVolume = parseFloat(e.target.value)
+        const video = videoRef.current
+        video.volume = newVolume
+        setVolume(newVolume)
+
+        // Automatically unmute if volume is increased from 0
+        if (newVolume > 0 && isMuted) {
+            video.muted = false
+            setIsMuted(false)
+        }
+        // Automatically mute if volume is set to 0
+        if (newVolume === 0 && !isMuted) {
+            video.muted = true
+            setIsMuted(true)
+        }
     }
 
     const handleVideoEnd = () => {
@@ -88,13 +110,22 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
                 </div>
             )}
 
-            {/* Mute/Unmute button */}
-            <button
-                onClick={toggleMute}
-                className="absolute top-4 right-4 w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center text-white"
-            >
-                {isMuted ? '🔇' : '🔊'}
-            </button>
+            {/* Volume Slider */}
+            <div className="absolute top-20 right-4 w-10 h-32 flex flex-col items-center justify-center p-2 opacity-20 hover:opacity-100 transition-opacity duration-300">
+                <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.1"
+                    value={isMuted ? 0 : volume}
+                    onChange={handleVolumeChange}
+                    className="w-24 h-2 bg-gray-300 rounded-lg appearance-none cursor-pointer slider-vertical"
+                    style={{
+                        transform: 'rotate(-90deg)',
+                        transformOrigin: 'center'
+                    }}
+                />
+            </div>
 
             {/* Video progress indicator */}
             <div className="absolute bottom-2 left-2 right-2 h-1 bg-white bg-opacity-30 rounded">

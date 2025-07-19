@@ -10,7 +10,7 @@ import "./styles/App.css"
 function App() {
   return (
     <div className="flex items-center justify-center w-screen h-screen bg-gray-100 overflow-hidden">
-      <div className="relative w-[375px] h-[667px] bg-blue-100 rounded-t-xl shadow-2xl border-2 border-blue-400">
+      <div className="relative w-[375px] h-[667px] bg-blue-100 rounded-t-xl shadow-2xl">
         {/* Routes with scrollable content */}
         <div className="absolute top-0 left-0 right-0 bottom-12 overflow-y-auto scrollbar-hidden rounded-t-xl overflow-hidden">
           <Routes>
@@ -27,8 +27,7 @@ function App() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-
-export default App
+export default App;
