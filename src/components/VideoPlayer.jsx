@@ -126,11 +126,6 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
                     }}
                 />
             </div>
-
-            {/* Video progress indicator */}
-            <div className="absolute bottom-2 left-2 right-2 h-1 bg-white bg-opacity-30 rounded">
-                <div className="h-full bg-white rounded transition-all duration-100" style={{ width: '0%' }}></div>
-            </div>
         </div>
     )
 }
