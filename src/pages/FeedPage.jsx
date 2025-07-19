@@ -7,6 +7,7 @@ function FeedPage() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
   const [codeClicked, setCodeClicked] = useState({})
   const [saveClicked, setSaveClicked] = useState({})
+  const [showSaveMessage, setShowSaveMessage] = useState(false)
   const [videos] = useState([
     {
       id: 1,
@@ -103,10 +104,16 @@ function FeedPage() {
       ...prev,
       [currentVideo.id]: !prev[currentVideo.id]
     }))
+
+    // Show save message when saving (not unsaving)
+    if (!saveClicked[currentVideo.id]) {
+      setShowSaveMessage(true)
+      setTimeout(() => setShowSaveMessage(false), 1000) // Hide after 2 seconds
+    }
   }
 
   return (
-    <div className="h-[600px] bg-black relative overflow-hidden">
+    <div className="h-full bg-black relative overflow-hidden">
       {/* Header */}
       <div className="absolute top-0 left-0 right-0 z-20 text-center pt-6 pb-4 bg-gradient-to-b from-black to-transparent">
         <h1 className="text-3xl font-bold text-white">ViewMe</h1>
@@ -131,7 +138,7 @@ function FeedPage() {
       </div>
 
       {/* Right side controls */}
-      <div className="absolute right-4 bottom-20 z-20 flex flex-col items-center space-y-6">
+      <div className="absolute right-4 bottom-16 z-20 flex flex-col items-center space-y-6">
         {/* Profile circle */}
         <button
           onClick={() => navigate('/profile')}
@@ -142,12 +149,12 @@ function FeedPage() {
         {/* Code button */}
         <button
           onClick={handleCodeClick}
-          className="w-8 h-8 flex items-center justify-center"
+          className="w-10 h-10 flex items-center justify-center"
         >
           <img
             src="/code.png"
             alt="Code"
-            className={`w-6 h-6 transition-all ${codeClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
+            className={`w-8 h-8 transition-all ${codeClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
               }`}
           />
         </button>
@@ -155,12 +162,12 @@ function FeedPage() {
         {/* Save button */}
         <button
           onClick={handleSaveClick}
-          className="w-8 h-8 flex items-center justify-center"
+          className="w-10 h-10 flex items-center justify-center"
         >
           <img
             src="/save.png"
             alt="Save"
-            className={`w-6 h-6 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
+            className={`w-8 h-8 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
               }`}
           />
         </button>
@@ -185,7 +192,7 @@ function FeedPage() {
       </div>
 
       {/* Bottom info */}
-      <div className="absolute bottom-20 left-4 right-20 z-20 text-black">
+      <div className="absolute bottom-16 left-4 right-20 z-20 text-white">
         <h2 className="text-xl font-bold mb-1">@{currentVideo.author}</h2>
         <p className="text-lg font-semibold mb-1">{currentVideo.title}</p>
         <p className="text-sm opacity-90">{currentVideo.description}</p>
@@ -201,6 +208,13 @@ function FeedPage() {
           />
         ))}
       </div>
+
+      {/* Save message */}
+      {showSaveMessage && (
+        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+          Video saved
+        </div>
+      )}
     </div>
   )
 }
