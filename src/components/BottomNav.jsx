@@ -11,7 +11,7 @@ function BottomNav() {
   ]
 
   return (
-    <nav className="bg-[#2A324B] text-white flex justify-around items-center h-12 border-t border-neutral-800">
+    <nav className="bg-[#2A324B] text-white flex justify-around items-center h-12 border-t border-neutral-800 rounded-b-xl">
       {navItems.map((item) => (
         <Link
           key={item.to}
