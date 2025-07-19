@@ -1,8 +1,12 @@
 import React, { useState, useEffect, useRef } from "react"
+import { useNavigate } from "react-router-dom"
 import VideoPlayer from "../components/VideoPlayer"
 
 function FeedPage() {
+  const navigate = useNavigate()
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [codeClicked, setCodeClicked] = useState({})
+  const [saveClicked, setSaveClicked] = useState({})
   const [videos] = useState([
     {
       id: 1,
@@ -69,6 +73,38 @@ function FeedPage() {
 
   const currentVideo = videos[currentVideoIndex]
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowUp') {
+        event.preventDefault()
+        goToPrevVideo()
+      } else if (event.key === 'ArrowDown') {
+        event.preventDefault()
+        goToNextVideo()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [currentVideoIndex, videos.length])
+
+  const handleCodeClick = () => {
+    setCodeClicked(prev => ({
+      ...prev,
+      [currentVideo.id]: !prev[currentVideo.id]
+    }))
+  }
+
+  const handleSaveClick = () => {
+    setSaveClicked(prev => ({
+      ...prev,
+      [currentVideo.id]: !prev[currentVideo.id]
+    }))
+  }
+
   return (
     <div className="h-[600px] bg-black relative overflow-hidden">
       {/* Header */}
@@ -97,20 +133,36 @@ function FeedPage() {
       {/* Right side controls */}
       <div className="absolute right-4 bottom-20 z-20 flex flex-col items-center space-y-6">
         {/* Profile circle */}
-        <div className="w-12 h-12 bg-gray-700 rounded-full border-2 border-white"></div>
+        <button
+          onClick={() => navigate('/profile')}
+          className="w-12 h-12 bg-gray-700 rounded-full border-2 border-white cursor-pointer hover:bg-gray-600 transition-colors"
+        ></button>
 
-        {/* Like button */}
-        <button className="text-white text-2xl">❤️</button>
 
-        {/* Comment button */}
-        <button className="text-white text-2xl">💬</button>
+        {/* Code button */}
+        <button
+          onClick={handleCodeClick}
+          className="w-8 h-8 flex items-center justify-center"
+        >
+          <img
+            src="/images/code.png"
+            alt="Code"
+            className={`w-6 h-6 transition-all ${codeClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
+              }`}
+          />
+        </button>
 
-        {/* Share button */}
-        <button className="text-white text-2xl">📤</button>
-
-        {/* Save/bookmark icon */}
-        <button className="w-8 h-8 border-2 border-white rounded-sm flex items-center justify-center">
-          <div className="w-4 h-4 border border-white rounded-sm"></div>
+        {/* Save button */}
+        <button
+          onClick={handleSaveClick}
+          className="w-8 h-8 flex items-center justify-center"
+        >
+          <img
+            src="/images/save.png"
+            alt="Save"
+            className={`w-6 h-6 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
+              }`}
+          />
         </button>
       </div>
 
@@ -133,7 +185,7 @@ function FeedPage() {
       </div>
 
       {/* Bottom info */}
-      <div className="absolute bottom-20 left-4 right-20 z-20 text-white">
+      <div className="absolute bottom-20 left-4 right-20 z-20 text-black">
         <h2 className="text-xl font-bold mb-1">@{currentVideo.author}</h2>
         <p className="text-lg font-semibold mb-1">{currentVideo.title}</p>
         <p className="text-sm opacity-90">{currentVideo.description}</p>
