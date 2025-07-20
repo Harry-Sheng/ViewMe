@@ -27,15 +27,6 @@ function ProfileFeedPage() {
             profileImage: "https://i.pravatar.cc/150?img=12",
             githubUrl: "https://github.com/johnsmith/social-buttons"
         },
-        {
-            id: 6,
-            src: "/videos/breakout_game.mp4",
-            title: "Game Development Tutorial",
-            description: "Building games with modern JavaScript",
-            author: "johnsmith",
-            profileImage: "https://i.pravatar.cc/150?img=12",
-            githubUrl: "https://github.com/johnsmith/game-tutorial"
-        }
     ])
 
     const containerRef = useRef(null)
