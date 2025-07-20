@@ -19,10 +19,7 @@ function UserPage() {
         image: "https://source.unsplash.com/random/400x200?code",
       },
     ],
-    savedPosts: [
-      { id: 101, content: "Saved post example #1" },
-      { id: 102, content: "Saved post example #2" },
-    ],
+    savedPosts: [{ id: 101, content: "Saved post example #1" }],
   };
 
   const [activeTab, setActiveTab] = useState("posts");
