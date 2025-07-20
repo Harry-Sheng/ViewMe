@@ -27,15 +27,6 @@ function ProfileFeedPage() {
             profileImage: "https://i.pravatar.cc/150?img=12",
             githubUrl: "https://github.com/johnsmith/social-buttons"
         },
-        {
-            id: 6,
-            src: "/videos/breakout_game.mp4",
-            title: "Game Development Tutorial",
-            description: "Building games with modern JavaScript",
-            author: "johnsmith",
-            profileImage: "https://i.pravatar.cc/150?img=12",
-            githubUrl: "https://github.com/johnsmith/game-tutorial"
-        }
     ])
 
     const containerRef = useRef(null)
@@ -163,7 +154,7 @@ function ProfileFeedPage() {
             </div>
 
             {/* Right side controls */}
-            <div className="absolute right-4 bottom-16 z-20 flex flex-col items-center space-y-6">
+            <div className="absolute right-4 bottom-6 z-20 flex flex-col items-center space-y-6">
                 {/* Profile circle */}
                 <button
                     onClick={() => navigate('/profile')}
@@ -221,7 +212,7 @@ function ProfileFeedPage() {
             </div>
 
             {/* Bottom info */}
-            <div className="absolute bottom-16 left-4 right-20 z-20 text-white">
+            <div className="absolute bottom-6 left-4 right-20 z-20 text-white">
                 <h2 className="text-xl font-bold mb-1">@{currentVideo.author}</h2>
                 <p className="text-lg font-semibold mb-1">{currentVideo.title}</p>
                 <p className="text-sm opacity-90">{currentVideo.description}</p>
@@ -229,7 +220,7 @@ function ProfileFeedPage() {
 
             {/* Save message */}
             {showSaveMessage && (
-                <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+                <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
                     Video saved
                 </div>
             )}

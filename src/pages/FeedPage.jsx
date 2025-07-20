@@ -157,7 +157,7 @@ function FeedPage() {
       </div>
 
       {/* Right side controls */}
-      <div className="absolute right-4 bottom-16 z-20 flex flex-col items-center space-y-6">
+      <div className="absolute right-4 bottom-6 z-20 flex flex-col items-center space-y-6">
         {/* Profile circle */}
         <button
           onClick={() => navigate('/profile')}
@@ -216,7 +216,7 @@ function FeedPage() {
       </div>
 
       {/* Bottom info */}
-      <div className="absolute bottom-16 left-4 right-20 z-20 text-white">
+      <div className="absolute bottom-6 left-4 right-20 z-20 text-white">
         <h2 className="text-xl font-bold mb-1">@{currentVideo.author}</h2>
         <p className="text-lg font-semibold mb-1">{currentVideo.title}</p>
         <p className="text-sm opacity-90">{currentVideo.description}</p>
@@ -224,7 +224,7 @@ function FeedPage() {
 
       {/* Save message */}
       {showSaveMessage && (
-        <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-30 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-30 bg-black bg-opacity-75 text-white px-4 py-2 rounded-lg">
           Video saved
         </div>
       )}
