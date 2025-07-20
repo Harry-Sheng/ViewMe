@@ -11,17 +11,30 @@ function FeedPage() {
   const [videos] = useState([
     {
       id: 1,
-      src: "/videos/1581402133124.mp4",
-      title: "Cool Video",
-      description: "Amazing content from the feed",
-      author: "Creator_1"
+      src: "/videos/social_button.mp4",
+      title: "Social Media Buttons",
+      description: "Creative social media button animations",
+      author: "johnsmith",
+      profileImage: "https://i.pravatar.cc/150?img=12",
+      githubUrl: "https://github.com/Xhuli4/socialMediaButtons"
     },
     {
       id: 2,
-      src: "/videos/ssstik.io_@rippleranks_1752898321072.mp4",
-      title: "Ripple Ranks",
-      description: "Check out this awesome content",
-      author: "rippleranks"
+      src: "/videos/breakout_game.mp4",
+      title: "Breakout Game",
+      description: "Classic breakout game built with JavaScript",
+      author: "GameDev",
+      profileImage: "https://i.pravatar.cc/150?img=8",
+      githubUrl: "https://github.com/gamedev/breakout-game"
+    },
+    {
+      id: 3,
+      src: "/videos/magic_nav.mp4",
+      title: "Magic Navigation Bar",
+      description: "Animated navigation bar with smooth transitions",
+      author: "johnsmith",
+      profileImage: "https://i.pravatar.cc/150?img=12",
+      githubUrl: "https://github.com/Xhuli4/magic-nav-bar"
     }
   ])
 
@@ -98,8 +111,8 @@ function FeedPage() {
       [currentVideo.id]: !prev[currentVideo.id]
     }))
 
-    // Open GitHub repository in new tab
-    window.open('https://github.com/Harry-Sheng/ViewMe', '_blank')
+    // Open GitHub repository in new tab - specific to current video
+    window.open(currentVideo.githubUrl, '_blank')
   }
 
   const handleSaveClick = () => {
@@ -151,7 +164,7 @@ function FeedPage() {
           className="w-12 h-12 bg-gray-700 rounded-full border-3 border-[#2A324B] cursor-pointer hover:bg-gray-600 transition-colors overflow-hidden"
         >
           <img
-            src="https://i.pravatar.cc/150?img=12"
+            src={currentVideo.profileImage}
             alt="Profile"
             className="w-full h-full object-cover rounded-full"
           />
@@ -207,17 +220,6 @@ function FeedPage() {
         <h2 className="text-xl font-bold mb-1">@{currentVideo.author}</h2>
         <p className="text-lg font-semibold mb-1">{currentVideo.title}</p>
         <p className="text-sm opacity-90">{currentVideo.description}</p>
-      </div>
-
-      {/* Video indicators */}
-      <div className="absolute right-2 top-1/2 transform -translate-y-1/2 z-20 flex flex-col space-y-2">
-        {videos.map((_, index) => (
-          <div
-            key={index}
-            className={`w-1 h-8 rounded-full transition-all ${index === currentVideoIndex ? 'bg-white' : 'bg-white bg-opacity-30'
-              }`}
-          />
-        ))}
       </div>
 
       {/* Save message */}

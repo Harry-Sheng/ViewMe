@@ -4,7 +4,7 @@ function VideoPlayer({ videoSrc, isActive, onVideoEnd }) {
     const videoRef = useRef(null)
     const [isPlaying, setIsPlaying] = useState(false)
     const [isMuted, setIsMuted] = useState(false)
-    const [volume, setVolume] = useState(1)
+    const [volume, setVolume] = useState(0.3)
 
     useEffect(() => {
         const video = videoRef.current

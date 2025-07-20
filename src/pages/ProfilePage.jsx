@@ -10,11 +10,11 @@ function ProfilePage() {
     posts: [
       {
         id: 1,
-        image: "https://source.unsplash.com/random/400x200?tech",
+        image: "/magic_nav.png",
       },
       {
         id: 2,
-        image: "https://source.unsplash.com/random/400x200?code",
+        image: "/social.png",
       },
     ],
     savedPosts: [
@@ -88,21 +88,19 @@ function ProfilePage() {
           <div className="-mx-6 flex gap-3 w-[calc(100%+3rem)]">
             <button
               onClick={() => setActiveTab("posts")}
-              className={`flex-1 py-3 text-sm font-semibold ${
-                activeTab === "posts"
-                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
-              }`}
+              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "posts"
+                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                : "bg-gray-700 text-gray-300 transition cursor-pointer"
+                }`}
             >
               Posts
             </button>
             <button
               onClick={() => setActiveTab("saved")}
-              className={`flex-1 py-3 text-sm font-semibold ${
-                activeTab === "saved"
-                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
-              }`}
+              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "saved"
+                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                : "bg-gray-700 text-gray-300 transition cursor-pointer"
+                }`}
             >
               Saved
             </button>
@@ -117,16 +115,14 @@ function ProfilePage() {
             {postsToShow.map((post) => (
               <div
                 key={post.id}
-                className="h-59 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden"
+                onClick={() => navigate('/profile-feed')}
+                className="h-64 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <img
                   src={post.image}
                   alt="Post image"
-                  className="w-full h-40 object-cover"
+                  className="w-full h-full object-cover"
                 />
-                <div className="p-4">
-                  <p>{post.content}</p>
-                </div>
               </div>
             ))}
           </div>
