@@ -2,6 +2,7 @@ import React from "react"
 import { Routes, Route } from "react-router-dom"
 import FeedPage from "./pages/FeedPage"
 import ProfilePage from "./pages/ProfilePage"
+import ProfileFeedPage from "./pages/ProfileFeedPage"
 import UserPage from "./pages/UserPage"
 import UploadPage from "./pages/UploadPage"
 import BottomNav from "./components/BottomNav"
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<FeedPage />} />
             <Route path="/user" element={<UserPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile-feed" element={<ProfileFeedPage />} />
             <Route path="/search" element={<SearchPage />} />
             <Route path="/upload" element={<UploadPage />} />
           </Routes>
