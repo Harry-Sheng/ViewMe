@@ -18,8 +18,8 @@ function ProfilePage() {
       },
     ],
     savedPosts: [
-      { id: 101, content: "Saved post example #1" },
-      { id: 102, content: "Saved post example #2" },
+      { id: 101, image: "/images/coding-editor.png" },
+      { id: 102, image: "/images/supply-chain.png" },
     ],
   };
 
@@ -88,19 +88,21 @@ function ProfilePage() {
           <div className="-mx-6 flex gap-3 w-[calc(100%+3rem)]">
             <button
               onClick={() => setActiveTab("posts")}
-              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "posts"
-                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                : "bg-gray-700 text-gray-300 transition cursor-pointer"
-                }`}
+              className={`flex-1 py-3 text-sm font-semibold ${
+                activeTab === "posts"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
+              }`}
             >
               Posts
             </button>
             <button
               onClick={() => setActiveTab("saved")}
-              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "saved"
-                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                : "bg-gray-700 text-gray-300 transition cursor-pointer"
-                }`}
+              className={`flex-1 py-3 text-sm font-semibold ${
+                activeTab === "saved"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
+              }`}
             >
               Saved
             </button>
@@ -115,13 +117,13 @@ function ProfilePage() {
             {postsToShow.map((post) => (
               <div
                 key={post.id}
-                onClick={() => navigate('/profile-feed')}
+                onClick={() => navigate("/profile-feed")}
                 className="h-64 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
               >
                 <img
                   src={post.image}
                   alt="Post image"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform"
                 />
               </div>
             ))}
