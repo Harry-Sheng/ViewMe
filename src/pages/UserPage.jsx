@@ -18,7 +18,7 @@ function UserPage() {
         image: "/images/calendar.png",
       },
     ],
-    savedPosts: [{ id: 101, content: "Saved post example #1" }],
+    savedPosts: [{ id: 101, image: "/magic_nav.png" }],
   };
 
   const [activeTab, setActiveTab] = useState("posts");
@@ -67,7 +67,7 @@ function UserPage() {
               Settings
             </button>
             <button
-              onClick={() => navigate('/upload')}
+              onClick={() => navigate("/upload")}
               className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer"
             >
               Upload Video
@@ -78,19 +78,21 @@ function UserPage() {
           <div className="-mx-6 flex gap-3 w-[calc(100%+3rem)]">
             <button
               onClick={() => setActiveTab("posts")}
-              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "posts"
-                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                : "bg-gray-700 text-gray-300 transition cursor-pointer"
-                }`}
+              className={`flex-1 py-3 text-sm font-semibold ${
+                activeTab === "posts"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
+              }`}
             >
               Posts
             </button>
             <button
               onClick={() => setActiveTab("saved")}
-              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "saved"
-                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                : "bg-gray-700 text-gray-300 transition cursor-pointer"
-                }`}
+              className={`flex-1 py-3 text-sm font-semibold ${
+                activeTab === "saved"
+                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
+              }`}
             >
               Saved
             </button>
@@ -106,7 +108,7 @@ function UserPage() {
               {postsToShow.map((post) => (
                 <div
                   key={post.id}
-                  className="h-59 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden"
+                  className="h-59 bg-white shadow-md rounded-lg border border-gray-200 text-black overflow-hidden cursor-pointer"
                 >
                   <img
                     src={post.image}
