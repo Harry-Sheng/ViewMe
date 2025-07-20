@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function UserPage() {
+  const navigate = useNavigate();
   const user = {
     name: "John Hackathon",
     username: "@johnhackathon",
@@ -36,13 +37,11 @@ function UserPage() {
         <div className="pb-6">
           {/* Profile Header */}
           <div className="flex items-center space-x-4 mb-6">
-            <Link to="/profile">
-              <img
-                src={user.avatar}
-                alt="User Avatar"
-                className="w-30 h-30 rounded-full border-2 border-gray-300 cursor-pointer hover:opacity-80"
-              />
-            </Link>
+            <img
+              src={user.avatar}
+              alt="User Avatar"
+              className="w-30 h-30 rounded-full border-2 border-gray-300"
+            />
             <div className="flex flex-col text-center">
               <h2 className="text-center text-2xl font-semibold text-[#E1E5EE]">
                 {user.name}
@@ -72,7 +71,10 @@ function UserPage() {
             <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer">
               Settings
             </button>
-            <button className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer">
+            <button
+              onClick={() => navigate('/upload')}
+              className="flex-1 bg-[#F9D9C2] text-[#2A324B] px-5 py-1.5 rounded hover:bg-gray-700 hover:text-gray-300 transition cursor-pointer"
+            >
               Upload Video
             </button>
           </div>
@@ -81,21 +83,19 @@ function UserPage() {
           <div className="-mx-6 flex gap-3 w-[calc(100%+3rem)]">
             <button
               onClick={() => setActiveTab("posts")}
-              className={`flex-1 py-3 text-sm font-semibold ${
-                activeTab === "posts"
-                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
-              }`}
+              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "posts"
+                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                : "bg-gray-700 text-gray-300 transition cursor-pointer"
+                }`}
             >
               Posts
             </button>
             <button
               onClick={() => setActiveTab("saved")}
-              className={`flex-1 py-3 text-sm font-semibold ${
-                activeTab === "saved"
-                  ? "bg-[#c7ccdb] text-black transition cursor-pointer"
-                  : "bg-gray-700 text-gray-300 transition cursor-pointer"
-              }`}
+              className={`flex-1 py-3 text-sm font-semibold ${activeTab === "saved"
+                ? "bg-[#c7ccdb] text-black transition cursor-pointer"
+                : "bg-gray-700 text-gray-300 transition cursor-pointer"
+                }`}
             >
               Saved
             </button>

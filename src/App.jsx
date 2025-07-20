@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import FeedPage from "./pages/FeedPage"
 import ProfilePage from "./pages/ProfilePage"
 import UserPage from "./pages/UserPage"
+import UploadPage from "./pages/UploadPage"
 import BottomNav from "./components/BottomNav"
 import SearchPage from "./pages/SearchPage"
 import "./styles/App.css"
@@ -18,6 +19,7 @@ function App() {
             <Route path="/user" element={<UserPage />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/upload" element={<UploadPage />} />
           </Routes>
         </div>
 
