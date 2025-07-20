@@ -11,19 +11,14 @@ function UserPage() {
     posts: [
       {
         id: 1,
-        content: "Just launched my new app! 🚀",
-        image: "https://source.unsplash.com/random/400x200?tech",
+        image: "/images/maze.png",
       },
       {
         id: 2,
-        content: "Exploring Tailwind CSS — loving the utility-first approach!",
-        image: "https://source.unsplash.com/random/400x200?code",
+        image: "/images/calendar.png",
       },
     ],
-    savedPosts: [
-      { id: 101, content: "Saved post example #1" },
-      { id: 102, content: "Saved post example #2" },
-    ],
+    savedPosts: [{ id: 101, content: "Saved post example #1" }],
   };
 
   const [activeTab, setActiveTab] = useState("posts");
@@ -116,11 +111,8 @@ function UserPage() {
                   <img
                     src={post.image}
                     alt="Post image"
-                    className="w-full h-40 object-cover"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform"
                   />
-                  <div className="p-4">
-                    <p>{post.content}</p>
-                  </div>
                 </div>
               ))}
             </div>
