@@ -173,9 +173,9 @@ function ProfileFeedPage() {
                     className="w-10 h-10 flex items-center justify-center cursor-pointer"
                 >
                     <img
-                        src="/code_blue.png"
+                        src="/code.png"
                         alt="Code"
-                        className="w-8 h-8"
+                        className="w-8 h-8 filter brightness-0 invert"
                     />
                 </button>
 
@@ -185,9 +185,9 @@ function ProfileFeedPage() {
                     className="w-10 h-10 flex items-center justify-center cursor-pointer"
                 >
                     <img
-                        src="/save_blue.png"
+                        src="/save.png"
                         alt="Save"
-                        className={`w-8 h-8 transition-all ${saveClicked[currentVideo.id] ? 'filter brightness-0 invert' : ''
+                        className={`w-8 h-8 transition-all filter brightness-0 invert ${saveClicked[currentVideo.id] ? 'opacity-50' : ''
                             }`}
                     />
                 </button>
